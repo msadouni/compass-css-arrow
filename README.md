@@ -10,7 +10,15 @@ Installation
 
 With Bundler :
 
-    gem 'compass-css-extension', :git => 'git://github.com/msadouni/compass-css-arrow.git'
+    // in your Gemfile
+
+    gem 'compass-css-arrow'
+
+Without Bundler :
+
+    // in a shell
+
+    $ (sudo) gem install compass-css-arrow
 
 Add to a project :
 
