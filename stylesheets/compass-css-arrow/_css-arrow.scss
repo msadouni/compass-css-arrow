@@ -1,19 +1,47 @@
-@mixin css-arrow($position, $size, $color, $border-width, $border-color) {
-  $arrow-orientation:bottom;
-  $arrow-position:left;
-  @if $position == right {
-    $arrow-orientation:left;
-    $arrow-position:top;
-  } @else if $position == bottom {
-    $arrow-orientation:top;
-    $arrow-position:left;
-  } @else if $position == left {
-    $arrow-orientation:right;
-    $arrow-position:top;
+// Default Settings
+$arrow-default-position     : bottom    !default;
+$arrow-default-size         : 1em       !default;
+$arrow-default-color        : gray      !default;
+$arrow-default-border-width : 0         !default;
+$arrow-default-border-color : false     !default;
+$arrow-default-border-style : solid     !default;
+
+// Mixin
+//
+// $position      : top | right | bottom | left
+// $size          : any border-accepted length - px, em, etc. (NOT %)
+// $color         : any color
+// $border-width  : any border-accepted length with units comparable to $size
+// $border-color  : any color
+// $border-style  : dotted | dashed | solid | double | groove | ridge | inset | outset
+@mixin css-arrow(
+  $position     : $arrow-default-position, 
+  $size         : $arrow-default-size, 
+  $color        : $arrow-default-color, 
+  $border-width : $arrow-default-border-width, 
+  $border-color : $arrow-default-border-color,
+  $border-style : $arrow-default-border-style
+) {
+  $arrow-orientation  : opposite-position($position);
+  $arrow-position     : left;
+  $border-size        : $size + $border-width * 1.41421356;
+
+  @if ($position == right) or ($position == left) {
+    $arrow-position   : top;
   }
+
   position: relative;
   background: $color;
-  border: $border-width solid $border-color;
+
+  @if ($border-width > 0) or ($border-color) {
+    @if not ($border-width > 0) { 
+      $border-width : $size*.25; 
+      $border-size  : $size + $border-width * 1.41421356;
+      @alert 'things!';
+    }
+    @if not $border-color { $border-color: darken($color,5); }
+    border: $border-width $border-style $border-color;
+  }
   &:after, &:before {
     #{$arrow-orientation}: 100%;
     border: solid transparent;
@@ -31,9 +59,8 @@
   }
   &:before {
     border-#{$arrow-orientation}-color: $border-color;
-    border-width: #{round($size + $border-width * 1.41421356)};
+    border-width: $border-size;
     #{$arrow-position}: 50%;
-    margin-#{$arrow-position}: -#{round($size + $border-width * 1.41421356)};
+    margin-#{$arrow-position}: -$border-size;
   }
 }
-
