@@ -31,14 +31,20 @@ Add to a project :
 Usage
 -----
 
-    // @include css-arrow($position, $size, $color, $border-width, $border-color);
+    // @include css-arrow($position, $size, $color, $border-width, $border-color, $border-style);
+    // default values :
+    // $position      : top | right | bottom | left
+    // $size          : any border-accepted length - px, em, etc. (NOT %)
+    // $color         : any color
+    // $border-width  : any border-accepted length with units comparable to $size
+    // $border-color  : any color
+    // $border-style  : dotted | dashed | solid | double | groove | ridge | inset | outset
+
     @import 'compass-css-arrow';
     .arrow-box {
-      @include css-arrow(top, 30px, #88b7d5, 4px, #c2e1f5);
+      @include css-arrow(top, 30px, #88b7d5, 4px, #c2e1f5, solid);
     }
 
-TODO
-----
-
-- Package as a real gem and update README
+    // specify only some of the values :
+    @include css-arrow($size: 1em, $border-style: dotted);
 
