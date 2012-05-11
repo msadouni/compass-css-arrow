@@ -37,7 +37,6 @@ $arrow-default-border-style : solid     !default;
     @if not ($border-width > 0) { 
       $border-width : $size*.25; 
       $border-size  : $size + $border-width * 1.41421356;
-      @alert 'things!';
     }
     @if not $border-color { $border-color: darken($color,5); }
     border: $border-width $border-style $border-color;
