@@ -1,0 +1,81 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/css3";
+@import "compass-css-arrow";
+body {
+  font-family: monospace;
+  color: #444;
+  background: #f3f3f3;
+}
+h1 {
+  font-family: Georgia, serif;
+  font-size: 3em;
+  color: #88b7d5;
+  text-align: center;
+  margin-bottom: 1em;
+}
+.content {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 3em 0;
+}
+.example {
+  margin-bottom: 1em;
+  padding: 3em;
+  border-bottom: 1px dashed #bfbfbf;
+  text-align: center;
+  &:last-child {
+    border: none;
+  }
+}
+.arrow-box {
+  width: 400px;
+  margin: 0 auto;
+  margin-bottom: 3em;
+  @include border-radius(10px);
+  p {
+    font-size: 3em;
+    padding: 1em;
+  }
+}
+.top {
+  @include css-arrow(top, 30px, #88b7d5, 4px, #c2e1f5, solid);
+}
+.right {
+  @include css-arrow(right, 30px, #88b7d5, 4px, #c2e1f5, solid);
+}
+.bottom {
+  @include css-arrow(bottom, 30px, #88b7d5, 4px, #c2e1f5, solid);
+}
+.left {
+  @include css-arrow(left, 30px, #88b7d5, 4px, #c2e1f5, solid);
+}
+.top-custom {
+  @include css-arrow(top, 30px, #88b7d5, 4px, #c2e1f5, solid, 40px);
+}
+.right-custom {
+  @include css-arrow(right, 30px, #88b7d5, 4px, #c2e1f5, solid, 75px);
+}
+.bottom-custom {
+  @include css-arrow(bottom, 30px, #88b7d5, 4px, #c2e1f5, solid, 75%);
+}
+.left-custom {
+  @include css-arrow(left, 30px, #88b7d5, 4px, #c2e1f5, solid, 3em);
+}
+.code {
+  width: 700px;
+  margin: 0 auto;
+  background: #e3e3e3;
+  padding: 1em;
+  @include border-radius;
+  border: 1px solid #bfbfbf;
+}
+pre {
+  margin: 0;
+  padding: 0;
+  font-size: 1.25em;
+}
