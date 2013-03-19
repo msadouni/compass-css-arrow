@@ -1,10 +1,11 @@
 // Default Settings
-$arrow-default-position     : bottom    !default;
-$arrow-default-size         : 1em       !default;
-$arrow-default-color        : gray      !default;
-$arrow-default-border-width : 0         !default;
-$arrow-default-border-color : false     !default;
-$arrow-default-border-style : solid     !default;
+$arrow-default-position       : bottom    !default;
+$arrow-default-size           : 1em       !default;
+$arrow-default-color          : gray      !default;
+$arrow-default-border-width   : 0         !default;
+$arrow-default-border-color   : false     !default;
+$arrow-default-border-style   : solid     !default;
+$arrow-default-position-value : 50%       !default;
 
 // Mixin
 //
@@ -15,12 +16,13 @@ $arrow-default-border-style : solid     !default;
 // $border-color  : any color
 // $border-style  : dotted | dashed | solid | double | groove | ridge | inset | outset
 @mixin css-arrow(
-  $position     : $arrow-default-position, 
-  $size         : $arrow-default-size, 
-  $color        : $arrow-default-color, 
-  $border-width : $arrow-default-border-width, 
-  $border-color : $arrow-default-border-color,
-  $border-style : $arrow-default-border-style
+  $position       : $arrow-default-position, 
+  $size           : $arrow-default-size, 
+  $color          : $arrow-default-color, 
+  $border-width   : $arrow-default-border-width, 
+  $border-color   : $arrow-default-border-color,
+  $border-style   : $arrow-default-border-style,
+  $position-value : $arrow-default-position-value
 ) {
   $arrow-orientation  : opposite-position($position);
   $arrow-position     : left;
@@ -53,13 +55,13 @@ $arrow-default-border-style : solid     !default;
   &:after {
     border-#{$arrow-orientation}-color: $color;
     border-width: $size;
-    #{$arrow-position}: 50%;
+    #{$arrow-position}: $position-value;
     margin-#{$arrow-position}: -$size;
   }
   &:before {
     border-#{$arrow-orientation}-color: $border-color;
     border-width: $border-size;
-    #{$arrow-position}: 50%;
+    #{$arrow-position}: $position-value;
     margin-#{$arrow-position}: -$border-size;
   }
 }
