@@ -5,6 +5,7 @@ $arrow-default-color        : gray      !default;
 $arrow-default-border-width : 0         !default;
 $arrow-default-border-color : false     !default;
 $arrow-default-border-style : solid     !default;
+$arrow-default-offset       : 50%       !default;
 
 // Mixin
 //
@@ -20,7 +21,8 @@ $arrow-default-border-style : solid     !default;
   $color        : $arrow-default-color, 
   $border-width : $arrow-default-border-width, 
   $border-color : $arrow-default-border-color,
-  $border-style : $arrow-default-border-style
+  $border-style : $arrow-default-border-style,
+  $offset       : $arrow-default-offset
 ) {
   $arrow-orientation  : opposite-position($position);
   $arrow-position     : left;
@@ -53,13 +55,13 @@ $arrow-default-border-style : solid     !default;
   &:after {
     border-#{$arrow-orientation}-color: $color;
     border-width: $size;
-    #{$arrow-position}: 50%;
+    #{$arrow-position}: $offset;
     margin-#{$arrow-position}: -$size;
   }
   &:before {
     border-#{$arrow-orientation}-color: $border-color;
     border-width: $border-size;
-    #{$arrow-position}: 50%;
+    #{$arrow-position}: $offset;
     margin-#{$arrow-position}: -$border-size;
   }
 }
