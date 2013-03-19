@@ -49,3 +49,7 @@ Usage
     // specify only some of the values :
     @include css-arrow($size: 1em, $border-style: dotted);
 
+Examples
+--------
+
+Check out [the examples](http://htmlpreview.github.com/?https://github.com/msadouni/compass-css-arrow/blob/master/examples/index.html) in `examples/index.html` to see the different arrow positions.
