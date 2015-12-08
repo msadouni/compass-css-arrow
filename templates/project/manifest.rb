@@ -1,2 +1,2 @@
 # Make sure you list all the project template files here in the manifest.
-stylesheet 'screen.sass', :media => 'screen, projection'
+stylesheet 'screen.scss', :media => 'screen, projection'
